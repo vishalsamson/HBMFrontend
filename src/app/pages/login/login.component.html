@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="container text-center mt-2">
+                <img src="../../../assets/logo.png" alt="">
+            </div>
+            <h3 class="text-center">Login here!!</h3>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="username" class="form-label">Enter Email*</label>
+                    <input  name="username" type="email" class="form-control" formControlName="username" id="username">
+                    <small class="text-danger" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+                        *email is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="password" class="form-label">Enter Password*</label>
+                    <input  name="password" type="password" class="form-control" formControlName="password" id="password">
+                    <small class="text-danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        *password is required
+                    </small>
+                    <small class="text-danger" *ngIf="loginForm.get('password')?.hasError('pattern')">
+                        *password doesnt match the pattern
+                    </small>
+                </div>
+
+                <div class="container text-center mb-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                    <p>Not a Member? <a routerLink="/signup">Signup</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

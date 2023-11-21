@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 card">
+            <div class="container text-center mt-2">
+                <img src="../../../assets/logo.png" alt="">
+            </div>
+            <h3 class="text-center">Register here!!</h3>
+
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="username" class="form-label">Enter Name*</label>
+                    <input  name="username" type="text" class="form-control" formControlName="username" id="username">
+                    <small class="text-danger" *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+                        *username is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="email" class="form-label">Enter Email Id*</label>
+                    <input  name="email" type="email" class="form-control" formControlName="email" id="email">
+                    <small class="text-danger" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+                        *email is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="password" class="form-label">Enter Password*</label>
+                    <input name="password" type="password" class="form-control" formControlName="password" id="password">
+                    <small class="text-danger" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                        *password is required
+                    </small>
+                    <small class="text-danger" *ngIf="signupForm.get('password')?.hasError('pattern')">
+                        *password doesnt match the pattern
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="mobile" class="form-label">Enter Mobile Number*</label>
+                    <input name="mobile" type="number" class="form-control" formControlName="mobile" id="mobile">
+                    <small class="text-danger" *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched">
+                        *mobile number is required
+                    </small>
+                    <small class="text-danger" *ngIf="signupForm.get('mobile')?.hasError('pattern')">
+                        *mobile number must be 10 digits
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="address" class="form-label">Enter Address*</label>
+                    <input name="address" type="text" class="form-control" formControlName="address" id="address">
+                    <small class="text-danger" *ngIf="signupForm.get('address')?.invalid && signupForm.get('address')?.touched">
+                        *address is required
+                    </small>
+                </div>
+
+                <div class="container text-center mb-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Signup</button>
+                    <p>Already have an account? <a routerLink="/login">Login</a></p>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
