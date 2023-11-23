@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 card">
+            <div class="container text-center mt-2">
+                <img src="../../../assets/hotel.png" alt="">
+            </div>
+            <h3 class="text-center">Create Room Details here!!</h3>
+
+            <div class="mb-2">
+                <label for="hotelId" class="form-label">Enter Hotel Id*</label>
+                <input name="hotelId" type="number" class="form-control" [(ngModel)]="hotelId" id="hotelId">
+            </div>
+
+            <form [formGroup]="createRoomDetailsForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="roomNo" class="form-label">Enter Room No.*</label>
+                    <input name="roomNo" type="text" class="form-control" formControlName="roomNo" id="roomNo">
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('roomNo')?.invalid && createRoomDetailsForm.get('roomNo')?.touched">
+                        *Room No. is required
+                    </small>
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('roomNo')?.hasError('pattern')">
+                        *Room no should follow pattern "A101"
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="roomType" class="form-label">Enter Room Type*</label>
+                    <input name="roomType" type="text" class="form-control" formControlName="roomType" id="roomType">
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('roomType')?.invalid && createRoomDetailsForm.get('roomType')?.touched">
+                        *Room No. is required
+                    </small>
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('roomType')?.hasError('pattern')">
+                        *Room Type should follow Pattern "Premium|Suites|Deluxe|Double Deluxe"
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="ratePerDay" class="form-label">Enter Rate per day*</label>
+                    <input name="ratePerDay" type="text" class="form-control" formControlName="ratePerDay" id="ratePerDay">
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('ratePerDay')?.invalid && createRoomDetailsForm.get('ratePerDay')?.touched">
+                        *Rate per day is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="isavailable" class="form-label">Enter Availability Status*</label>
+                    <input name="isavailable" type="text" class="form-control" formControlName="isavailable" id="isavailable">
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('isavailable')?.invalid && createRoomDetailsForm.get('isavailable')?.touched">
+                        *Availability Status is required
+                    </small>
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('isavailable')?.hasError('pattern')">
+                        *Availability Status should be either "true" or "false"
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="fileName" class="form-label">Enter Image Name*</label>
+                    <input name="fileName" type="text" class="form-control" formControlName="fileName" id="fileName">
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('fileName')?.invalid && createRoomDetailsForm.get('fileName')?.touched">
+                        *Image Name is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="fileType" class="form-label">Enter Image Type*</label>
+                    <input name="fileType" type="text" class="form-control" formControlName="fileType" id="fileType">
+                    <small class="text-danger" *ngIf="createRoomDetailsForm.get('fileType')?.invalid && createRoomDetailsForm.get('fileType')?.touched">
+                        *Image type is required
+                    </small>
+                </div>
+
+                <div class="container text-center mb-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="createRoomDetailsForm.invalid">Create</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

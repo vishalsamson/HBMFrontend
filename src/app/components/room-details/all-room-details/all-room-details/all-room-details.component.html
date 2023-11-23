@@ -1,0 +1,39 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Room Id</th>
+            <th>Room No.</th>
+            <th>Room Type</th>
+            <th>Rate per day</th>
+            <th>Available Status</th>
+            <th>Image Name</th>
+            <th>Image type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let room of rooms">
+            <td>{{room.id}}</td>
+            <td>{{room.roomNo}}</td>
+            <td>{{room.roomType}}</td>
+            <td>{{room.ratePerDay}}</td>
+            <td>{{room.isavailable}}</td>
+            <td>{{room.fileName}}</td>
+            <td>{{room.fileType}}</td>
+            <td>
+                <!-- <button class="btn btn-sm btn-danger mx-1" [routerLink]="['/edit',reservation.id]">Edit</button> -->
+                <!-- <button class="btn btn-sm btn-secondary mx-1" (click)="deleteHotel(hotel.hotelId)">Delete</button> -->
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<ul *ngIf="rooms.length; else noRooms">
+
+</ul>
+
+<ng-template #noRooms>
+    <p>No reservation Available</p>
+</ng-template>
+
+

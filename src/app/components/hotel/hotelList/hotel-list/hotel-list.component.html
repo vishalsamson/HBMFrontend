@@ -1,0 +1,44 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hotel Id</th>
+            <th>City</th>
+            <th>Hotel Name</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>Average Price</th>
+            <th>Email</th>
+            <th>Phone1</th>
+            <th>Phone2</th>
+            <th>Website</th>
+            <!-- <th>Actions</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hotel of hotels">
+            <td>{{hotel.hotelId}}</td>
+            <td>{{hotel.city}}</td>
+            <td>{{hotel.hotelName}}</td>
+            <td>{{hotel.address}}</td>
+            <td>{{hotel.description}}</td>
+            <td>{{hotel.averageRatePerDay}}</td>
+            <td>{{hotel.email}}</td>
+            <td>{{hotel.phone1}}</td>
+            <td>{{hotel.phone2}}</td>
+            <td>{{hotel.website}}</td>
+            <!-- <td>
+                <button class="btn btn-sm btn-danger mx-1" [routerLink]="['/edit',reservation.id]">Edit</button>
+                <button class="btn btn-sm btn-secondary mx-1" (click)="deleteHotel(hotel)">Delete</button>
+            </td> -->
+
+        </tr>
+    </tbody>
+</table>
+
+<ul *ngIf="hotels.length; else noHotels">
+
+</ul>
+
+<ng-template #noHotels>
+    <p>No reservation Available</p>
+</ng-template>

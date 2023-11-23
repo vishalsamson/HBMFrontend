@@ -9,24 +9,22 @@ export class UserService {
 
   constructor(private http: HttpClient,
     private userAuthService: UserAuthService) {
-
   }
+
 
   requestHeader = new HttpHeaders(
     { "No-Auth": "True" }
   );
 
-  contextPath = 'http://localhost:6633/';
-  saveUser = this.contextPath + "public/register";
-  loginuser = this.contextPath + "public/login";
+  contextPath = 'http://localhost:6633';
 
   //signup the user
   public addUser(user: any) {
-    return this.http.post(`${this.saveUser}`, user);
+    return this.http.post(`${this.contextPath}/public/register`, user);
   }
 
   public loginUser(user: any) {
-    return this.http.post(`${this.loginuser}`, user, { headers: this.requestHeader });
+    return this.http.post(`${this.contextPath}/public/login`, user, { headers: this.requestHeader });
   }
 
   public roleMatch(allowedRoles: any): boolean {
@@ -48,5 +46,9 @@ export class UserService {
     }
     return isMatch;
 
+  }
+
+  public getAllUsers(){
+    return this.http.get(`${this.contextPath}/admin/users/`);
   }
 }

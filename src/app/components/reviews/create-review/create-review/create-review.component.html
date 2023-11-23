@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 card">
+            <div class="container text-center mt-2">
+                <img src="../../../assets/hotel.png" alt="">
+            </div>
+            <h3 class="text-center">Write Review here!!</h3>
+
+            <div class="mb-2">
+                <label for="userId" class="form-label">Enter User Id*</label>
+                <input name="userId" type="number" class="form-control" [(ngModel)]="userId" id="userId">
+            </div>
+
+            <div class="mb-2">
+                <label for="hotelId" class="form-label">Enter Hotel Id*</label>
+                <input name="hotelId" type="number" class="form-control" [(ngModel)]="hotelId" id="hotelId">
+            </div>
+
+            <form [formGroup]="createReviewForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="reviewContent" class="form-label">Enter Review*</label>
+                    <input name="reviewContent" type="text" class="form-control" formControlName="reviewContent" id="reviewContent">
+                    <small class="text-danger" *ngIf="createReviewForm.get('reviewContent')?.invalid && createReviewForm.get('reviewContent')?.touched">
+                        *reiew content is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="rating" class="form-label">Enter Rating*</label>
+                    <input name="rating" type="number" class="form-control" formControlName="rating" id="rating">
+                    <small class="text-danger" *ngIf="createReviewForm.get('rating')?.invalid && createReviewForm.get('rating')?.touched">
+                        *rating is required
+                    </small>
+                </div>
+                <div class="container text-center mb-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="createReviewForm.invalid">Create</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

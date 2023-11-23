@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 card">
+            <div class="container text-center mt-2">
+                <img src="../../../assets/hotel.png" alt="">
+            </div>
+            <h3 class="text-center">Create Hotel here!!</h3>
+
+            <form [formGroup]="createHotelForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="city" class="form-label">Enter City*</label>
+                    <input name="city" type="text" class="form-control" formControlName="city" id="city">
+                    <small class="text-danger" *ngIf="createHotelForm.get('city')?.invalid && createHotelForm.get('city')?.touched">
+                        *city is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="hotelName" class="form-label">Enter Hotel Name*</label>
+                    <input name="hotelName" type="text" class="form-control" formControlName="hotelName" id="hotelName">
+                    <small class="text-danger" *ngIf="createHotelForm.get('hotelName')?.invalid && createHotelForm.get('hotelName')?.touched">
+                        *Hotel Name is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="address" class="form-label">Enter Address*</label>
+                    <input name="address" type="text" class="form-control" formControlName="address" id="address">
+                    <small class="text-danger" *ngIf="createHotelForm.get('address')?.invalid && createHotelForm.get('address')?.touched">
+                        *Address is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="description" class="form-label">Enter Description of Hotel*</label>
+                    <input name="description" type="text" class="form-control" formControlName="description"
+                        id="description">
+                    <small class="text-danger" *ngIf="createHotelForm.get('description')?.invalid && createHotelForm.get('description')?.touched">
+                        *Description is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="averageRatePerDay" class="form-label">Enter Average Rate*</label>
+                    <input name="averageRatePerDay" type="number" class="form-control"
+                        formControlName="averageRatePerDay" id="averageRatePerDay">
+                    <small class="text-danger" *ngIf="createHotelForm.get('averageRatePerDay')?.invalid && createHotelForm.get('averageRatePerDay')?.touched">
+                        *Average rate is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="email" class="form-label">Enter Email*</label>
+                    <input name="email" type="email" class="form-control" formControlName="email" id="email">
+                    <small class="text-danger" *ngIf="createHotelForm.get('email')?.invalid && createHotelForm.get('email')?.touched">
+                        *Email is required
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="phone1" class="form-label">Enter Phone Number 1*</label>
+                    <input name="phone1" type="number" class="form-control" formControlName="phone1" id="phone1">
+                    <small class="text-danger" *ngIf="createHotelForm.get('phone1')?.invalid && createHotelForm.get('phone1')?.touched">
+                        *Phone Number is required
+                    </small>
+                    <small class="text-danger" *ngIf="createHotelForm.get('phone1')?.hasError('pattern')">
+                        *Phone number must be 10 digits
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="phone2" class="form-label">Enter Phone Number 2</label>
+                    <input name="phone2" type="number" class="form-control" formControlName="phone2" id="phone2">
+                    <small class="text-danger" *ngIf="createHotelForm.get('phone2')?.invalid && createHotelForm.get('phone2')?.touched">
+                        *Phone Number is required
+                    </small>
+                    <small class="text-danger" *ngIf="createHotelForm.get('phone2')?.hasError('pattern')">
+                        *Phone number must be 10 digits
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="website" class="form-label">Enter Website*</label>
+                    <input name="website" type="text" class="form-control" formControlName="website" id="website">
+                    <small class="text-danger" *ngIf="createHotelForm.get('website')?.invalid && createHotelForm.get('website')?.touched">
+                        *website is required
+                    </small>
+                    <small class="text-danger" *ngIf="createHotelForm.get('website')?.hasError('pattern')">
+                        website must match the pattern "www.example.com"
+                    </small>
+                </div>
+
+                <div class="mb-2">
+                    <label for="isBooked" class="form-label">Enter Booking Status*</label>
+                    <input name="isBooked" type="text" class="form-control" formControlName="isBooked" id="isBooked">
+                    <small class="text-danger" *ngIf="createHotelForm.get('isBooked')?.invalid && createHotelForm.get('isBooked')?.touched">
+                        *Booking status is required
+                    </small>
+                    <small class="text-danger" *ngIf="createHotelForm.get('isBooked')?.hasError('pattern')">
+                        *value must be either true or false
+                    </small>
+                </div>
+
+                <div class="container text-center mb-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="createHotelForm.invalid">Create</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

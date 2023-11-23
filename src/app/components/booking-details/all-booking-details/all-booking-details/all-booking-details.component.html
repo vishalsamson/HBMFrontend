@@ -1,0 +1,38 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Booking Id</th>
+            <th>Booked From</th>
+            <th>Booked To</th>
+            <th>No of Adults</th>
+            <th>No Of Children</th>
+            <th>Amount</th>
+            <th>Payment Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of bookings">
+            <td>{{booking.id}}</td>
+            <td>{{booking.bookedFrom}}</td>
+            <td>{{booking.bookedTo}}</td>
+            <td>{{booking.noOfAdults}}</td>
+            <td>{{booking.noOfChildren}}</td>
+            <td>{{booking.amount}}</td>
+            <td>{{booking.payment.paymentStatus}}</td>
+            <td>
+                <!-- <button class="btn btn-sm btn-danger mx-1" [routerLink]="['/edit',reservation.id]">Edit</button> -->
+                <!-- <button class="btn btn-sm btn-secondary mx-1" (click)="deleteHotel(hotel.hotelId)">Delete</button> -->
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<ul *ngIf="bookings.length; else noBookings">
+
+</ul>
+
+<ng-template #noBookings>
+    <p>No reservation Available</p>
+</ng-template>
+
